@@ -1,9 +1,21 @@
 ---
 name: detail-flow
-description: Build, redesign, polish, or review product detail pages for products, AI tools, models, SaaS features, developer products, plugins, ecommerce listings, and technical showcases. Use when the user provides a product image, reference image, screenshot, product concept, or existing page and asks for a detail page, ecommerce detail page, 8-screen product page, long-form sales page, model page, product feature page, visual polish, responsive frontend implementation, screenshot-based QA, or reusable workflow derived from an existing product page project.
+description: Build, redesign, polish, or review product detail pages for products, AI tools, models, SaaS features, developer products, plugins, ecommerce listings, and technical showcases. Use when the user provides a product image, reference image, screenshot, product concept, or existing page and asks for a detail page, ecommerce detail page, 8-screen product page, long-form sales page, model page, product feature page, visual polish, responsive frontend implementation, screenshot-based QA, or reusable workflow derived from an existing product page project. 中文触发：生成/规划/审核电商详情页、8屏产品长图、带货详情图、商品主图详情页；当用户提供产品图+风格参考图并说"做一套详情页/8屏详情页"时调用。
+argument-hint: "<product_image> [<reference_image>]"
+user-invocable: true
+agent_created: true
 ---
 
 # DetailFlow
+
+> **WorkBuddy 适配说明（中文）**
+> 本 Skill 由 Codex 版（github.com/AJbeckliy/detail-flow）转换而来，工作契约与能力保持不变。
+> - **触发方式**：直接给产品图 + 风格参考图并说"生成 8 屏电商详情页"，或手动调用 `/detail-flow <产品图> [风格参考图]`。
+> - **图像生成**：使用 WorkBuddy 内置的 ImageGen（文生图）能力生成 1:3 母版与 9:21 分屏。
+> - **拼接预览**：用 Python(PIL) 把分屏按顺序拼成预览长图（仅做确定性拼图，不新建工具脚本）。
+> - **图片自检**：用 Read 工具读取生成图，做连贯性 / 产品漂移 / 文字错乱审查。
+> - **关键纪律**：两次人工确认门禁（先确认蓝图、再确认视觉样张包）；不编造参数 / 认证 / 功效；失败只返修最小责任层。
+> 下文为原版工作契约（英文，权威），请严格遵守执行顺序与 MUST 规则。
 
 ## Overview
 
