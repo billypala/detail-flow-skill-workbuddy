@@ -27,7 +27,7 @@ DetailFlow 是一个用于**规划、生成、审核和交付电商详情页**�
 | 图像生成 | 调用 Codex 图像管线 | 内置 **ImageGen（文生图）** 生成 1:3 母版与 9:21 分屏 |
 | 拼接预览 | 工具相关 | 用 **Python(PIL)** 把分屏按顺序拼成预览长图 |
 | 图片自检 | Agent 读图 | 用 **Read 工具**读取生成图做连贯性 / 漂移 / 文字审查 |
-| 触发方式 | `$detail-flow` | 直接说需求，或 `/detail-flow <产品图> [风格参考图]` |
+| 触发方式 | `$detail-flow` | 直接说需求，或 `/detail-flow-skill-workbuddy <产品图> [风格参考图]` |
 | 接口元数据 | `agents/openai.yaml` | 已移除（WorkBuddy 用 SKILL.md frontmatter） |
 
 > 关键纪律不变：**两次人工确认门禁**（先确认蓝图、再确认视觉样张包）；**不编造参数 / 认证 / 功效**；失败只返修最小责任层。
@@ -39,13 +39,13 @@ DetailFlow 是一个用于**规划、生成、审核和交付电商详情页**�
 Windows PowerShell：
 
 ```powershell
-git clone https://github.com/billypala/detail-flow.git "$env:USERPROFILE\.workbuddy\skills\detail-flow"
+git clone https://github.com/billypala/detail-flow-skill-workbuddy.git "$env:USERPROFILE\.workbuddy\skills\detail-flow-skill-workbuddy"
 ```
 
 macOS / Linux：
 
 ```bash
-git clone https://github.com/billypala/detail-flow.git ~/.workbuddy/skills/detail-flow
+git clone https://github.com/billypala/detail-flow-skill-workbuddy.git ~/.workbuddy/skills/detail-flow-skill-workbuddy
 ```
 
 ### 方式二：在 WorkBuddy 中直接安装
@@ -53,10 +53,10 @@ git clone https://github.com/billypala/detail-flow.git ~/.workbuddy/skills/detai
 向 WorkBuddy 提出：
 
 ```text
-请从 https://github.com/billypala/detail-flow 安装这个 Skill。
+请从 https://github.com/billypala/detail-flow-skill-workbuddy 安装这个 Skill。
 ```
 
-安装后，给它产品图 + 风格参考图并说「生成 8 屏电商详情页」即可触发；也可手动 `/detail-flow <产品图> [风格参考图]`。
+安装后，给它产品图 + 风格参考图并说「生成 8 屏电商详情页」即可触发；也可手动 `/detail-flow-skill-workbuddy <产品图> [风格参考图]`。
 
 ## 使用方式
 
@@ -93,7 +93,7 @@ git clone https://github.com/billypala/detail-flow.git ~/.workbuddy/skills/detai
 ## 文件结构
 
 ```text
-detail-flow/
+detail-flow-skill-workbuddy/
 ├── SKILL.md                         # 核心工作契约与执行规则（WorkBuddy frontmatter）
 ├── README.md                       # 本说明
 ├── LICENSE                         # MIT
@@ -122,7 +122,7 @@ detail-flow/
 
 ## Repository
 
-- 本 fork：https://github.com/billypala/detail-flow
+- 本 fork：https://github.com/billypala/detail-flow-skill-workbuddy
 - 上游原版：https://github.com/AJbeckliy/detail-flow
 
 ## 致谢
